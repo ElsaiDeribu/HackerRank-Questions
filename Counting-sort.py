@@ -1,8 +1,41 @@
-def countsort(n, arr):
-    count = []
-    for i in range(102):
-        count.append(0)
-    for j in range(n):
-        count[arr[j]] += 1
+#!/bin/python3
 
-    return count
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'countingSort' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+
+def countingSort(arr):
+    
+    freq_arr = [0] * 100
+    
+    for num in arr:
+        freq_arr[num] += 1
+        
+    return freq_arr
+    
+    
+    
+    # Write your code here
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = countingSort(arr)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
